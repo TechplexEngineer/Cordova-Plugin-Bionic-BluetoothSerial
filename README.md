@@ -15,7 +15,6 @@ Android and Windows Phone use Classic Bluetooth. iOS uses Bluetooth Low Energy.
 
 ## Limitations
 
- * The phone must initiate the Bluetooth connection
  * iOS Bluetooth Low Energy requires iPhone 4S, iPhone5, iPod 5, or iPad3+
  * Will *not* connect iOS to iOS[*](https://github.com/don/BluetoothSerial/issues/75#issuecomment-52591397)
 
