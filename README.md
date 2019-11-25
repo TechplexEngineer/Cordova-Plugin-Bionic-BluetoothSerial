@@ -1,8 +1,8 @@
 # Bluetooth Serial Plugin for PhoneGap
 
-This plugin enables serial communication over Bluetooth. It was written for communicating between Android or iOS and an Arduino.
+This plugin enables serial communication over Bluetooth. It was written for communicating between Android or iOS and an Arduino. This fork enables listening functionality for incoming connections on Android.
 
-Android and Windows Phone use Classic Bluetooth.  iOS uses Bluetooth Low Energy.
+Android and Windows Phone use Classic Bluetooth. iOS uses Bluetooth Low Energy.
 
 ## Supported Platforms
 
@@ -17,7 +17,6 @@ Android and Windows Phone use Classic Bluetooth.  iOS uses Bluetooth Low Energy.
 
  * The phone must initiate the Bluetooth connection
  * iOS Bluetooth Low Energy requires iPhone 4S, iPhone5, iPod 5, or iPad3+
- * Will *not* connect Android to Android[*](https://github.com/don/BluetoothSerial/issues/50#issuecomment-66405396)
  * Will *not* connect iOS to iOS[*](https://github.com/don/BluetoothSerial/issues/75#issuecomment-52591397)
 
 # Installing
@@ -38,6 +37,7 @@ There are some [sample projects](https://github.com/don/BluetoothSerial/tree/mas
 
 - [bluetoothSerial.connect](#connect)
 - [bluetoothSerial.connectInsecure](#connectInsecure)
+- [bluetoothSerial.listen](#listen)
 - [bluetoothSerial.disconnect](#disconnect)
 - [bluetoothSerial.write](#write)
 - [bluetoothSerial.available](#available)
@@ -111,6 +111,26 @@ For Android, `connectInsecure` takes a macAddress of the remote device.
 - __connectSuccess__: Success callback function that is invoked when the connection is successful.
 - __connectFailure__: Error callback function, invoked when error occurs or the connection disconnects.
 
+## listen
+
+Listen for an incoming Bluetooth connection.
+
+    bluetoothSerial.listen(connectSuccess, connectFailure);
+
+### Description
+
+Function `listen` will begin listening for incoming connections. Success is called when a connection to a client is initiated. Failure is called when a connection to a client closes.
+
+#### iOS
+`listen` is **not supported** on iOS.
+
+#### Windows Phone
+`listen` is **not supported** on Windows Phone.
+
+### Parameters
+
+- __connectSuccess__: Success callback function that is invoked when the connection is successful.
+- __connectFailure__: Error callback function, invoked when error occurs or the connection disconnects.
 
 ## disconnect
 
