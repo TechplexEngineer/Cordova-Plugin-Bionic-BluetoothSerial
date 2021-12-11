@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-bionic-bluetoothserial",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "Bluetooth Serial Communication Plugin",
   "main": "./www/bluetoothSerial.js",
   "cordova": {
