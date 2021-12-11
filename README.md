@@ -1,34 +1,25 @@
-# Bluetooth Serial Plugin for PhoneGap
+# Bluetooth Serial Plugin for Cordova
 
-This plugin enables serial communication over Bluetooth. It was written for communicating between Android or iOS and an Arduino. This fork enables listening functionality for incoming connections on Android.
+This plugin enables serial communication over Bluetooth.
 
-Android and Windows Phone use Classic Bluetooth. iOS uses Bluetooth Low Energy.
+This plugin is based on the work of:
+- https://github.com/Mechanical-Advantage/AdvantageScoutSerial
+- https://github.com/don/BluetoothSerial
 
-## Supported Platforms
+## Tested Platforms
 
-* Android
-* iOS with [RedBearLab](http://redbearlab.com) BLE hardware, [Adafruit Bluefruit LE](http://www.adafruit.com/products/1697), [Laird BL600](http://www.lairdtech.com/Products/Embedded-Wireless-Solutions/Bluetooth-Radio-Modules/BL600-Series/#.VBI7AS5dUzI), [BlueGiga](https://bluegiga.zendesk.com/entries/29185293--BGScript-spp-over-ble-AT-command-SPP-implementation-for-BLE), or [HC-02](http://www.hc01.com/productdetail?productid=20180314021)
-* Windows Phone 8
-* Browser (Testing only. See [comments](https://github.com/don/BluetoothSerial/blob/master/src/browser/bluetoothSerial.js).)
-
-[Supporting other Bluetooth Low Energy hardware](#supporting-other-ble-hardware)
-
-## Limitations
-
- * iOS Bluetooth Low Energy requires iPhone 4S, iPhone5, iPod 5, or iPad3+
- * Will *not* connect iOS to iOS[*](https://github.com/don/BluetoothSerial/issues/75#issuecomment-52591397)
+* Android 11
+* Cordova 10.0.0
 
 # Installing
 
 Install with Cordova cli
 
-    $ cordova plugin add cordova-plugin-bluetooth-serial
-
-Note that this plugin's id changed from `com.megster.cordova.bluetoothserial` to `cordova-plugin-bluetooth-serial` as part of the migration from the [Cordova plugin repo](http://plugins.cordova.io/) to [npm](https://www.npmjs.com/).
+    $ cordova plugin add https://github.com/TechplexEngineer/Cordova-Plugin-Bionic-BluetoothSerial
 
 # Examples
 
-There are some [sample projects](https://github.com/don/BluetoothSerial/tree/master/examples) included with the plugin.
+There are some [sample projects](/examples) included with the plugin.
 
 # API
 
@@ -63,7 +54,7 @@ There are some [sample projects](https://github.com/don/BluetoothSerial/tree/mas
 
 Connect to a Bluetooth device.
 
-    bluetoothSerial.connect(macAddress_or_uuid, connectSuccess, connectFailure);
+    bluetoothSerial.connect(macAddress, connectSuccess, connectFailure);
 
 ### Description
 
