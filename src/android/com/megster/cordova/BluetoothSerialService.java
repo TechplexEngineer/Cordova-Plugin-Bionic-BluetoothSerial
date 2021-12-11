@@ -197,6 +197,21 @@ public class BluetoothSerialService {
         setState(STATE_NONE);
     }
 
+    public synchronized void stopAccepting() {
+        if (D) Log.d(TAG, "stopAccepting");
+
+        if (mSecureAcceptThread != null) {
+            mSecureAcceptThread.cancel();
+            mSecureAcceptThread = null;
+        }
+
+        if (mInsecureAcceptThread != null) {
+            mInsecureAcceptThread.cancel();
+            mInsecureAcceptThread = null;
+        }
+        setState(STATE_NONE);
+    }
+
     /**
      * Write to the ConnectedThread in an unsynchronized manner
      * @param out The bytes to write
