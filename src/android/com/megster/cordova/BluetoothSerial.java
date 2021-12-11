@@ -33,6 +33,7 @@ public class BluetoothSerial extends CordovaPlugin {
     // actions
     private static final String LIST = "list";
     private static final String LISTEN = "listen";
+    private static final String STOP_LISTEN = "stopListen";
     private static final String CONNECT = "connect";
     private static final String CONNECT_INSECURE = "connectInsecure";
     private static final String DISCONNECT = "disconnect";
@@ -49,7 +50,8 @@ public class BluetoothSerial extends CordovaPlugin {
     private static final String CLEAR = "clear";
     private static final String SETTINGS = "showBluetoothSettings";
     private static final String ENABLE = "enable";
-    private static final String DISCOVER_UNPAIRED = "discoverUnpaired";
+    private static final String DISCOVER_UNPAIRED = "startDiscovery";
+    private static final String DISCOVERY_CANCEL = "cancelDiscovery";
     private static final String SET_DEVICE_DISCOVERED_LISTENER = "setDeviceDiscoveredListener";
     private static final String CLEAR_DEVICE_DISCOVERED_LISTENER = "clearDeviceDiscoveredListener";
     private static final String SET_NAME = "setName";
@@ -113,6 +115,11 @@ public class BluetoothSerial extends CordovaPlugin {
             
             listen(args, callbackContext);
             
+        } else if (action.equals(STOP_LISTEN)) {
+
+            bluetoothSerialService.stopAccepting();
+            callbackContext.success();
+
         } else if (action.equals(CONNECT)) {
 
             boolean secure = true;
@@ -224,6 +231,11 @@ public class BluetoothSerial extends CordovaPlugin {
                 permissionCallback = callbackContext;
                 cordova.requestPermission(this, CHECK_PERMISSIONS_REQ_CODE, ACCESS_COARSE_LOCATION);
             }
+
+        } else if (action.equals(DISCOVERY_CANCEL)){
+
+            bluetoothAdapter.cancelDiscovery();
+            callbackContext.success();
 
         } else if (action.equals(SET_DEVICE_DISCOVERED_LISTENER)) {
 
