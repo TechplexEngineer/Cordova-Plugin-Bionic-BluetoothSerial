@@ -80,7 +80,7 @@ module.exports = {
         if (typeof data === 'string') {
             data = stringToArrayBuffer(data);
         } else if (data instanceof Array) {
-            // assuming array of interger
+            // assuming array of integer
             data = new Uint8Array(data).buffer;
         } else if (data instanceof Uint8Array) {
             data = data.buffer;
